@@ -202,12 +202,12 @@ exports.sendotp = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     })
-    const result = await OTP.findOne({ otp: otp })
+    const result = await OTP.findOne({ otp: otp }) //check unique otp or not
     console.log("Result is Generate OTP Func")
     console.log("OTP", otp)
     console.log("Result", result)
     while (result) {
-      otp = otpGenerator.generate(6, {
+      otp = otpGenerator.generate(6,{//! instead of check otp is unique or not, use library which give unique otp
         upperCaseAlphabets: false,
       })
     }
